@@ -207,7 +207,7 @@ class ANiStrm(_PluginBase):
     def __task(self, fulladd: bool = False):
         cnt = 0
         # 增量添加更新
-        if not fulladd:
+        if False:          # 强制走全量分支
             rss_info_list = self.get_latest_list()
             logger.info(f'本次处理 {len(rss_info_list)} 个文件')
             for rss_info in rss_info_list:
@@ -371,7 +371,7 @@ class ANiStrm(_PluginBase):
         ], {
             "enabled": False,
             "onlyonce": False,
-            "fulladd": False,
+            "fulladd": True,
             "storageplace": '/downloads/strm',
             "cron": "*/20 22,23,0,1 * * *",
         }
